@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cayden+Palvie</title>
+	<style>
+	body {
+	  background-image: url('https://e0.pxfuel.com/wallpapers/349/51/desktop-wallpaper-black-and-white-cartoon-couple-cute-couple.jpg');
+	  background-repeat: no-repeat;
+	  background-size: cover;
+	}
+
+		body {
+			font-family: Arial, sans-serif;
+			text-align: center;
+			background-color: #F5F5F5;
+		}
+
+		h1 {
+			font-size: 36px;
+			color: black;
+		}
+
+		img {
+			border-radius: 50%;
+			margin-top: 50px;
+			max-width: 300px;
+			height: auto;
+		}
+
+		.button {
+			display: inline-block;
+			background-color: #FF69B4;
+			color: white;
+			padding: 10px;
+			margin-top: 20px;
+			border: none;
+			border-radius: 5px;
+			font-size: 18px;
+			cursor: pointer;
+		}
+
+		.button:hover {
+			background-color: #FF1493;
+		}
+
+		.overlay {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.5);
+			display: none;
+		}
+
+		.overlay-content {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: white;
+			padding: 20px;
+			border-radius: 10px;
+		}
+
+		.close-button {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			background-color: transparent;
+			color: #FF69B4;
+			border: none;
+			font-size: 24px;
+			cursor: pointer;
+		}
+
+		.pastry-image {
+			max-width: 300px;
+			height: auto;
+		}
+
+		.joke {
+			font-size: 24px;
+			margin-top: 20px;
+			color: #FF69B4;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>Cayden misses Palvie:)</h1>
+	</header>
+
+	<main>
+		<img src="_DSC5305 (1).jfif" alt="Cayden Image">
+
+		<h2>So you have chosen Death!</h2>
+		<p><strong>Firstly well done on accepting a deal with the Devil</strong></p>
+		<p><strong>I was bored so i made this to show you i care(maybe)</strong></p>
+		<p><strong>anyways, click the button below if you miss me too</strong>anyways, click the button below if you miss me too</p>
+		<button class="button">I miss you too</button>
+
+		<div class="overlay">
+			<div class="overlay-content">
+				<button class="close-button">&times;</button>
+				<h2>if you clicked this,well done you get a treat</h2>
+				<p>from 1-10, how many kiss coupons do you want?</p>
+				<input type="text" id="pastry-input">
+				<button id="pastry-button" class="button">Submit</button>
+				<img id="pastry-image" class="pastry-image" src="" alt="Pastry Image">
+			</div>
+		</div>
+
+		<div class="joke"></div>
+	</main>
+  <script>
+		const button = document.querySelector('.button');
+		const overlay = document.querySelector('.overlay');
+		const closeBtn = document.querySelector('.close-button');
+		const pastryInput = document.getElementById('pastry-input');
+		const pastryButton = document.getElementById('pastry-button');
+		const pastryImage = document.getElementById('pastry-image');
+		const joke = document.querySelector('.joke');
+
+		// Show overlay when button is clicked
+		button.addEventListener('click', function() {
+			overlay.style.display = 'block';
+			pastryInput.value = '';
+			pastryImage.src = '';
+
+			// Get random pastry image from Unsplash API
+			pastryImage.src = 'https://static.vecteezy.com/system/resources/previews/017/546/191/non_2x/one-kiss-coupon-romantic-ticket-valentine-s-day-design-element-illustration-vector.jpg';
+
+		});
+
+		// Hide overlay when close button is clicked
+		closeBtn.addEventListener('click', function() {
+			overlay.style.display = 'none';
+		});
+
+		// Show a random pastry-related joke when submit button is clicked
+		pastryButton.addEventListener('click', function() {
+			const pastry = pastryInput.value;
+
+			if (pastryInput.value < 0 || pastryInput.value > 10) {
+	    joke.textContent = 'Hey, stick to the rules!!, try again smartass';
+	} else {
+	    joke.textContent = `You have earned yourself ${pastryInput.value} kisses for being cute:), see you saturday to redeem:)`;
+	}
+			overlay.style.display = 'none';
+		});
+	</script>
+
+
+</body>
+</html>
